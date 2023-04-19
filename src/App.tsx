@@ -1,23 +1,22 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import Home from './containers/Home';
+import NotFound from './containers/NotFound';
 
-function App() {
+export function App() {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="about" element={<h2>About</h2>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
 }
 
-function WrappedApp() {
+export function WrappedApp() {
   return (
     <HashRouter>
       <App />
     </HashRouter>
   );
 }
-
-export default WrappedApp;
