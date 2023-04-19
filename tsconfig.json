@@ -22,7 +22,9 @@
   },
   "include": [
     "src",
-    ".eslintrc.cjs"
+    "tests",
+    ".eslintrc.cjs",
+    "vite.config.ts"
   ],
   "references": [
     {
