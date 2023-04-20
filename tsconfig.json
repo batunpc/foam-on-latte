@@ -24,7 +24,8 @@
     "src",
     "tests",
     ".eslintrc.cjs",
-    "vite.config.ts"
+    "vite.config.ts",
+    ".vitest/setupTests.ts"
   ],
   "references": [
     {
