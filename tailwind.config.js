@@ -9,6 +9,10 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        fredoka: ['Fredoka', 'sans-serif'],
+      },
+      colors: {
+        primary: '#fff3e0',
       },
     },
   },
