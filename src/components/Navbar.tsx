@@ -10,10 +10,10 @@ import {
 } from '@heroicons/react/24/outline';
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Services', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
+  { name: 'Home', href: '/#/', current: true },
+  { name: 'Team', href: '/#/team', current: false },
+  { name: 'Services', href: '#/services', current: false },
+  { name: 'Projects', href: '#/projects', current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -31,6 +31,7 @@ function useDisclosure() {
 
 export default function Navbar() {
   const { isOpen, toggle } = useDisclosure();
+  const [currentNavItem, setCurrentNavItem] = useState('Home');
 
   type LogoAndTextProps = {
     showLogo: boolean;
@@ -64,7 +65,7 @@ export default function Navbar() {
 
   return (
     <Disclosure as="nav" onChange={toggle} className="bg-gray-800">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* mobile view - burger menu */}
@@ -81,24 +82,26 @@ export default function Navbar() {
             <div className="flex-shrink-0 flex items-center">
               <LogoAndText showLogo={true} />
             </div>
-          </div>
-          <div className="hidden sm:ml-6 sm:block">
-            <div className="flex space-x-4 font-fredoka">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? 'bg-gray-900 text-primary'
-                      : 'text-gray-300 hover:bg-gray-700 hover:text-primary',
-                    'rounded-md px-3 py-2 text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </a>
-              ))}
+
+            <div className="hidden sm:ml-12 sm:block">
+              <div className="flex space-x-4 font-fredoka">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className={classNames(
+                      currentNavItem === item.name
+                        ? 'bg-gray-900 text-primary'
+                        : 'text-gray-300 hover:bg-gray-700 hover:text-primary',
+                      'rounded-md px-3 py-3 text-base font-medium'
+                    )}
+                    aria-current={item.current ? 'page' : undefined}
+                    onClick={() => setCurrentNavItem(item.name)}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
