@@ -37,13 +37,13 @@ export default function Header() {
                 <div className="absolute inset-y-0  flex items-center ">
                   <Link
                     to="/"
-                    className="text-black font-bold text-1xl uppercase"
+                    className="text-secondary font-bold text-xl uppercase"
                   >
                     FoamOnLatte.
                   </Link>
                 </div>
 
-                <div className="flex flex-grow justify-center">
+                <div className="flex flex-grow justify-end">
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-6">
                       {navigation.map((item) => (
@@ -54,7 +54,7 @@ export default function Header() {
                             isCurrent(item.href)
                               ? 'bg-gray-900 text-white'
                               : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                            'rounded-md px-3 py-2 text-sm font-medium',
+                            'rounded-md px-3 py-2 text-xl font-medium',
                           )}
                           aria-current={
                             isCurrent(item.href) ? 'page' : undefined
@@ -81,7 +81,7 @@ export default function Header() {
                     isCurrent(item.href)
                       ? 'bg-gray-900 text-secondary'
                       : 'text-secondary hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-large',
+                    'block rounded-md px-3 py-2 text-xl font-large',
                   )}
                   aria-current={isCurrent(item.href) ? 'page' : undefined}
                 >

@@ -1,3 +1,14 @@
+import { Canvas } from '@react-three/fiber';
+
+function Sphere(props: any) {
+  return (
+    <mesh {...props}>
+      <sphereGeometry args={[1, 16, 16]} />
+      <meshStandardMaterial color="hotpink" />
+    </mesh>
+  );
+}
+
 function Home() {
   return (
     <div className="flex flex-grow items-center justify-center">
@@ -7,6 +18,13 @@ function Home() {
         <span>latte</span>
         <span className="text-2xl">.tech</span>
       </h1>
+      <div>
+        <Canvas>
+          <Sphere position={[0, 0, 0]} />
+
+          <Sphere position={[-2, 0, 0]} />
+        </Canvas>
+      </div>
     </div>
   );
 }
